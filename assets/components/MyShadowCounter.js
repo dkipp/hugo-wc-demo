@@ -1,5 +1,5 @@
 // @ts-nocheck
-class MyShadowCounter extends HTMLElement {
+customElements.define('my-shadow-counter', class extends HTMLElement {
 
   constructor() {
     super();
@@ -31,6 +31,4 @@ class MyShadowCounter extends HTMLElement {
   update(count) {
     this.shadowRoot.getElementById('count').innerHTML = count;
   }
-}
-
-customElements.define('my-shadow-counter', MyShadowCounter );
+});

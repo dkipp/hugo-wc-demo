@@ -1,0 +1,20 @@
+{
+  "name": "hugo-wc-demo",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "SET NODE_ENV=development & npx tailwindcss -i ./static/tailwind.css -o ./assets/css/main.css --jit -w",
+    "build": "SET NODE_ENV=production & npx tailwindcss -i ./static/tailwind.css -o ./assets/css/main.css --jit --minify"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.1",
+    "@tailwindcss/forms": "^0.3.3",
+    "@tailwindcss/line-clamp": "^0.2.1",
+    "@tailwindcss/typography": "^0.4.1",
+    "tailwindcss": "^2.2.4"
+  }
+}

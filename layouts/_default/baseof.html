@@ -15,9 +15,13 @@
   <script src="//unpkg.com/alpinejs" defer></script>
 
   {{ "<!-- Components -->" | safeHTML }}
-  {{ $components := resources.Match "components/**.js" }}
-  {{ $components = $components | resources.Concat "temp.js" | resources.ExecuteAsTemplate "components.js" . }}
-  <script src="{{- $components.RelPermalink -}}"></script>
+  {{ $components := slice }}
+  {{ range (resources.Match "components/**.js") }}
+    {{ $c := . | resources.ExecuteAsTemplate "temp.js" . }}
+    {{ $components = $components | append $c }}
+  {{ end }}
+  {{ $script := $components | resources.Concat "components.js"}}
+  <script src="{{- $script.RelPermalink -}}"></script>
 
 </head>
 

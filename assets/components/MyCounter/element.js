@@ -5,8 +5,8 @@ customElements.define('my-counter', class extends HTMLElement {
     super();
     this.count = 0;
     this.template = document.createElement('template');
-    {{ with resources.Get "components/MyCounter/template.html" }}
-    this.template.innerHTML = `{{- .Content -}}`;
+    {{ with $html := resources.Get (path.Join (path.Dir .) "template.html") }}
+    this.template.innerHTML = `{{- $html.Content -}}`;
     {{ end }}
   }
 
